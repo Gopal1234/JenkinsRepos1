@@ -1,7 +1,19 @@
 package model;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
+
 public class Product {
-private int productId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@GenericGenerator(name = "uuid", strategy = "uuid2")
+private String productId;
 private String productName;
 private String productCategory;
 private double productPrice;
@@ -9,17 +21,10 @@ public Product() {
 	super();
 	// TODO Auto-generated constructor stub
 }
-public Product(int productId, String productName, String productCategory, double productPrice) {
-	super();
-	this.productId = productId;
-	this.productName = productName;
-	this.productCategory = productCategory;
-	this.productPrice = productPrice;
-}
-public int getProductId() {
+public String getProductId() {
 	return productId;
 }
-public void setProductId(int productId) {
+public void setProductId(String productId) {
 	this.productId = productId;
 }
 public String getProductName() {
